@@ -43,7 +43,7 @@ int	wtoi(const wchar_t *str)
 	return (result * sign);
 }
 
-wchar_t	*my_wcscpy(wchar_t *dest, const wchar_t *src)
+/* wchar_t	*my_wcscpy(wchar_t *dest, const wchar_t *src)
 {
 	wchar_t			*d;
 	const wchar_t	*s;
@@ -56,4 +56,4 @@ wchar_t	*my_wcscpy(wchar_t *dest, const wchar_t *src)
 	}
 	*d = L'\0';
 	return (dest);
-}
+} */
