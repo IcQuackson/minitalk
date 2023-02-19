@@ -4,15 +4,23 @@ FLAGS = -g -Wall -Werror -Wextra
 
 all:	$(NAME)
 
-$(NAME):
-		cc $(FLAGS) -o server server.c aux.c
-		cc $(FLAGS) -o client client.c aux.c
+$(NAME):	server client
+
+server: server.c aux.c
+	@cd ft_printf && make
+	@cc $(FLAGS) $^ -o $@ ft_printf/libftprintf.a
+
+client: client.c aux.c
+	@cd ft_printf && make
+	@cc $(FLAGS) $^ -o $@ ft_printf/libftprintf.a
 
 clean:
-		rm -rf *.o
+		@rm -rf *.o
+		@cd ft_printf && make clean
 
 fclean:	clean
-		rm -rf server client
+		@rm -rf server client
+		@cd ft_printf && make fclean
 
 re:		fclean all
 
